@@ -1,11 +1,9 @@
-### Алгоритмы поиска на графах
+# Алгоритмы поиска на графах на примере игры Pacman
 Источник: https://inst.eecs.berkeley.edu/~cs188/fa18/project1.html
 
-В этом проекте агент Pacman должен найти все пути через лабиринт, чтобы добраться до определенного места и эффективно собрать еду. Задача создать общие алгоритмы поиска и применить их к Pacman.
+В данном проекте агент Pacman с помощью алгноритмов поиска на графах проходит лабиринт и эффективно собирает по пути еду.
 
-![Pacman](media/pacman_ghosts.png)
-
-##### Структура файлов
+### Структура файлов
 
 Файлы, которые были изменены мной:
 * `search.py`   Файл, где находятся все алгоритмы поиска
@@ -25,32 +23,17 @@
 * `layout.py`   Код для чтения файлов и сохранения их содержимого
 * `autograder.py`   Project autograder
 * `testParser.py`   Parses autograder test and solution files
-* `testParser.py`  General autograding test classes
+* `testClasses.py`  General autograding test classes
 * *test_cases/*   Directory containing the test cases for each question
 * `searchTestClasses.py`    Project 1 specific autograding test classes
 
-##### Инструкция
+### Инструкция
 Поиграть в Pacman можно, набрав в терминале:
 
 ```bash
 python3 pacman.py
 ```
-
-Самый простой Агент в `searchAgents.py` называется GoWestAgent, который всегда идет на запад.
-```bash
-python3 pacman.py --layout testMaze --pacman GoWestAgent
-```
-```bash
-python3 pacman.py --layout tinyMaze --pacman GoWestAgent
-```
-
 Eсли Pacman застрял, вы можете выйти нажав CTRL-C в вашем терминале.
-
-Скрипт `pacman.py`  поддерживает ряд опций, которые можно увидеть выполнив команду:
-
-```bash
-python3 pacman.py -h
-```
 
 Проверить корректность работы агента поиска можно, запустив:
 ```bash
@@ -58,49 +41,51 @@ python3 pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
 ```
 Данная команда говорит агенту поиска использовать алгоритм поиска tinyMazeSearch, который реализован а `search.py`. Pacman должен пройти лабиринт успешно.
 
-##### Алгоритм поиска в глубину (DFS)
+### Алгоритм поиска в глубину (DFS)  
 
-Для маленького лабиринта:
-```bash
-python3 pacman.py -l tinyMaze -p SearchAgent
-```
-Для среднего:
 ```bash
 python3 pacman.py -l mediumMaze -p SearchAgent
-```
-Для большого:
+```  
+![pacman_dfs](media/pacman_dfs_x2.gif)  
+
+
+**Примечание.** Опция *-l* задает тип лабиринта:  
+* tinyMaze - маленький;
+* mediumMaze - средний;
+* bigMaze - большой.  
+Полный список опций можно увидеть, набрав в терминале:  
 ```bash
-python3 pacman.py -l bigMaze -z .5 -p SearchAgent
+python3 pacman.py -h
 ```
 
-##### Поиск в Ширину (BFS)
+### Поиск в Ширину (BFS)  
 
-Для среднего лабиринта:
 ```bash
 python3 pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
-```
-Для большого:
-```bash
-python3 pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
-```
+```  
+![pacman_bfs](media/pacman_bfs_x2.gif)  
 
-##### Алгоритм Uninformed cost search (UCS)
+### Алгоритм Uninformed cost search (UCS)  
 
-Простой лабиринт среднего размера:
+Простой лабиринт:
 ```bash
 python3 pacman.py -l mediumMaze -p SearchAgent -a fn=ucs
-```
+```  
+![pacman_ucs](media/pacman_ucs_x2.gif)  
 Лабиринт с едой:
 ```bash
 python3 pacman.py -l mediumDottedMaze -p StayEastSearchAgent
-```
+```  
+![pacman_ucs_food](media/pacman_ucs_food_x2.gif)  
 Лабиринт с призраками:
 ```bash
 python3 pacman.py -l mediumScaryMaze -p StayWestSearchAgent
-```
+```  
+![pacman_ucs_ghosts](media/pacman_ucs_ghosts_x2.gif)  
 
-##### Алгоритм A*
+### Алгоритм A*  
 Запуск реализации алгоритма A*  для решения задачи поиска пути, используя эвристику Манхеттоновское расстояние, осуществляется командой:
 ```bash
-python3 pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
-```
+python3 pacman.py -l mediumMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+```  
+![pacman_astar](media/pacman_astar_x2.gif)  
