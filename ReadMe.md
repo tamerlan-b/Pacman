@@ -5,41 +5,14 @@
 
 ### Структура файлов
 
-Файлы, которые были изменены мной:
-* `search.py`   Файл, где находятся все алгоритмы поиска
-* `searchAgents.py` - находятся агенты основанные на поиске
+Основные файлы:
+* `search.py`   содержит все алгоритмы поиска;
+* `searchAgents.py` - содержит агентов, основанных на поиске;
+* `pacman.py` - основной файл, запускающий игру Pacman.
 
-Файлы, на которые стоит посмотреть:
-* `pacman.py` Основной файл запускающий игру Pacman. Данный файл описывает Состояние среды  Pacman, которое используется в проекте  
-* `game.py` Логика, как работает мир Pacman. Данный файл описывает несколько вспомогательных типов, таких как AgentState, Agent, Direction, и Grid.
-* `util.py` Полезные структуры данных для имплементации алгоритма поиска
-
-Вспомогательные файлы, которые можно проигнорировать:
-* `graphicsDisplay.py`  Графика Pacman
-* `graphicsUtils.py`    Вспомогательный файл для графики Pacman graphics
-* `textDisplay.py`  ASCII графика Pacman
-* `ghostAgents.py`  Агенты для управления призраками
-* `keyboardAgents.py`   Интерфейс клавиатуры для управления Pacman
-* `layout.py`   Код для чтения файлов и сохранения их содержимого
-* `autograder.py`   Project autograder
-* `testParser.py`   Parses autograder test and solution files
-* `testClasses.py`  General autograding test classes
-* *test_cases/*   Directory containing the test cases for each question
-* `searchTestClasses.py`    Project 1 specific autograding test classes
-
-### Инструкция
-Поиграть в Pacman можно, набрав в терминале:
-
-```bash
-python3 pacman.py
-```
-Eсли Pacman застрял, вы можете выйти нажав CTRL-C в вашем терминале.
-
-Проверить корректность работы агента поиска можно, запустив:
-```bash
-python3 pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
-```
-Данная команда говорит агенту поиска использовать алгоритм поиска tinyMazeSearch, который реализован а `search.py`. Pacman должен пройти лабиринт успешно.
+### Зависимости
+* python3
+* tkinter
 
 ### Алгоритм поиска в глубину (DFS)  
 
@@ -89,3 +62,11 @@ python3 pacman.py -l mediumScaryMaze -p StayWestSearchAgent
 python3 pacman.py -l mediumMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
 ```  
 ![pacman_astar](media/pacman_astar_x2.gif)  
+
+### Поиграть самому  
+Поиграть в Pacman можно, набрав в терминале:
+
+```bash
+python3 pacman.py
+```
+Eсли Pacman застрял, вы можете выйти нажав CTRL-C в вашем терминале.
