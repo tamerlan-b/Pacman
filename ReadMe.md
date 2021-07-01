@@ -16,6 +16,8 @@
 
 ### Алгоритм поиска в глубину (DFS)  
 
+**Весь код запускается из директории scripts!**
+
 ```bash
 python3 pacman.py -l mediumMaze -p SearchAgent
 ```  
